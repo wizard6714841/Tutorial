@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ca5hn06d8muki"]
+
+[ext_resource type="PackedScene" uid="uid://bnly3e81phfnl" path="res://Scene/box.tscn" id="1_mhtsl"]
+[ext_resource type="FontFile" uid="uid://ddyb0o3oeh56s" path="res://Assets/BoldPixels.ttf" id="2_4jv7b"]
+[ext_resource type="Script" uid="uid://bxdhb4nass3rf" path="res://Script/label.gd" id="3_03iqk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcchk"]
+font = ExtResource("2_4jv7b")
+font_size = 64
+outline_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 32
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1390586693]
+
+[node name="Area2D" parent="." unique_id=949527963 instance=ExtResource("1_mhtsl")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1999488096]
+
+[node name="Label" type="Label" parent="." unique_id=627674517]
+offset_left = -562.0
+offset_top = -316.0
+offset_right = -242.0
+offset_bottom = -260.0
+text = "Score Error"
+label_settings = SubResource("LabelSettings_vcchk")
+script = ExtResource("3_03iqk")
+
+[connection signal="score_update" from="Area2D" to="Label" method="_on_area_2d_score_update"]
